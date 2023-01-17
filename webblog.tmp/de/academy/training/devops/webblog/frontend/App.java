@@ -2,6 +2,7 @@ package de.academy.training.devops.webblog.frontend;
 
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Scanner;
 import de.academy.training.devops.webblog.backend.*;
 import java.time.format.DateTimeFormatter;
@@ -12,6 +13,7 @@ public class App {
 
         System.out.println("********************Welcome on the SuSiFe-Website!********************");
 
+        // Get user input for Blog title, Author, Blog Text and Date and Time of submission
         try (Scanner input = new Scanner(System.in)) {
             System.out.println("Enter Name: ");
             String author = input.nextLine();
@@ -33,6 +35,17 @@ public class App {
             DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
             System.out.println(dateTime.format(formatter));
            
+        // Create Arraylist to hold all Posts
+        ArrayList<Post> allPosts = new ArrayList<>();
+        
+        // Create Post Objects including all arguments
+        Post post1 = new Post(title, commentText, author);
+        Post post2 = new Post(title, commentText, author);
+        Post post3 = new Post(title, commentText, author);
+        
+        
+        
+        
         }
 
     }
