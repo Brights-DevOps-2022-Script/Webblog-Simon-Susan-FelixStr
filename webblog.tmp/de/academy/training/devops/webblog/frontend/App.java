@@ -16,8 +16,8 @@ public class App {
             System.out.println("What do you want to do?");
             System.out.println("1. Create a new post");
             System.out.println("2. Show all posts");
-            System.out.println("Do you want to comment a post?");
-            System.out.println("3. Exit");
+            System.out.println("3. Do you want to comment a post?");
+            System.out.println("4. Exit");
             int choice = userInput.nextInt();
             userInput.nextLine();
 
@@ -44,7 +44,7 @@ public class App {
                     System.out.println("Date: " + post.getFormattedDateTime());
                     System.out.println("--------------------------------------------------");
                 }
-            } else if (choice == 3) {
+            } else if (choice == 4) {
                 break;
             } else {
                 System.out.println("Invalid choice. Please enter a valid number.");
