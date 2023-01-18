@@ -39,8 +39,6 @@ public class Post {
         return comment;
     }
 
-    }
-
     public LocalDateTime getLocalDateTime() {
         return dateTime;
     }
@@ -53,4 +51,5 @@ public class Post {
 
     public void addComment(Comment comment) {
         comments.add(comment);
-}}
+    }
+}
