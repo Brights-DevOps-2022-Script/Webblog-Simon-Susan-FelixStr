@@ -46,28 +46,22 @@ public class App {
                 }
 
             } else if (choice == 3) {
-                System.out.println("Which Post do you want to comment?"); 
+                System.out.println("Which Post do you want to comment?");
                 int postID = userInput.nextInt();
+                userInput.nextLine();
                 System.out.println("Please add your name.");
                 String commentauthor = userInput.nextLine();
                 System.out.println("Please add your comment.");
                 String commenttext = userInput.nextLine();
                 Comment comment = new Comment(commenttext, commentauthor);
+                Post post = dataStore.getPost(postID);
                 post.addComment(comment);
-
-
-                }
-                
-                
-
-
-                
-            }else if(choice==4)
-
-    {
-        break;
-    }else
-    {
-        System.out.println("Invalid choice. Please enter a valid number.");
+            } else if (choice == 4) {
+                break;
+            } else {
+                System.out.println("Invalid choice. Please enter a valid number.");
+            }
+        }
+        userInput.close();
     }
-}userInput.close();}
+}

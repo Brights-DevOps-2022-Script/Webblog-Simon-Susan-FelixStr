@@ -35,7 +35,7 @@ public class DataStore {
         return postMap.get(getPostId);
     }
 
-    public Post getPostId() {
+    public Post getPostId(int id) {
         return postMap.get(nextPostId);
     }
 
