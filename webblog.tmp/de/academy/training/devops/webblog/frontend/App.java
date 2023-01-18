@@ -40,7 +40,7 @@ public class App {
                     System.out.println("Text: " + post.getText());
                     System.out.println("Author: " + post.getAuthor());
                     System.out.println("Comments: " + post.getComments());
-                    // System.out.println("Date: " + post.getDate());
+                    System.out.println("Time: " + post.getFormattedDateTime());
                     System.out.println("--------------------------------------------------");
                 }
             } else if (choice == 3) {
