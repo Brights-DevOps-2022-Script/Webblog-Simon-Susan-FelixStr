@@ -4,7 +4,6 @@ import de.academy.training.devops.webblog.backend.Comment;
 import de.academy.training.devops.webblog.backend.Post;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class DataStore {
@@ -35,4 +34,37 @@ public class DataStore {
     public Post getPost(int postId) {
         return postMap.get(postId);
     }
+
+    public void showPost(int postId) {
+        Post post = postMap.get(postId);
+        System.out.println("ID: " + postId);
+        System.out.println("Title: " + post.getTitle());
+        System.out.println("Text: " + post.getText());
+        System.out.println("Author: " + post.getAuthor());
+        System.out.println("Date: " + post.getFormattedDateTime());
+        System.out.println("--------------------------------------------------");
+    }
+
+    public void showPostAndComments(int postId) {
+        Post post = postMap.get(postId);
+        if (post != null) {
+            showPostAndComments(postId);
+            for (Comment comment : post.getComments()) {
+                System.out.println("-----Post-----");
+                System.out.println("ID: " + postId);
+                System.out.println("Title: " + post.getTitle());
+                System.out.println("Text: " + post.getText());
+                System.out.println("Author: " + post.getAuthor());
+                System.out.println("Date: " + post.getFormattedDateTime());
+                System.out.println("---Comments---");
+                System.out.println("Comment: " + comment.getText());
+                System.out.println("Author: " + comment.getAuthor());
+                System.out.println("Date: " + comment.getFormattedDateTime());
+                System.out.println("--------------------------------------------------");
+            }
+        } else {
+            System.out.println("Post with ID " + postId + " not found.");
+        }
+    }
+
 }

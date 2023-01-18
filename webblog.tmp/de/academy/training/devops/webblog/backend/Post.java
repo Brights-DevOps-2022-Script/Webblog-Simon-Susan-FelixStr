@@ -47,4 +47,12 @@ public class Post {
         return dateTime.format(formatter);
     }
 
+    public int setId(int nextPostId) {
+        return nextPostId;
+    }
+
+    public void addComment(Comment comment) {
+        this.comment.add(comment);
+    }
+
 }
