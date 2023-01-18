@@ -36,11 +36,12 @@ public class App {
                 System.out.println("All posts:");
                 for (int i = 1; i < dataStore.nextPostId; i++) {
                     Post post = dataStore.getPost(i);
+                    System.out.println("ID: " + i);
                     System.out.println("Title: " + post.getTitle());
                     System.out.println("Text: " + post.getText());
                     System.out.println("Author: " + post.getAuthor());
                     System.out.println("Comments: " + post.getComments());
-                    System.out.println("Time: " + post.getFormattedDateTime());
+                    System.out.println("Date: " + post.getFormattedDateTime());
                     System.out.println("--------------------------------------------------");
                 }
             } else if (choice == 3) {
