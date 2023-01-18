@@ -1,10 +1,8 @@
 package de.academy.training.devops.webblog.backend;
+
 import java.util.ArrayList;
 
-
-
-
-public class Post{
+public class Post {
 
     private String title;
     private String text;

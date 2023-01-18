@@ -1,11 +1,8 @@
 package de.academy.training.devops.webblog.frontend;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.Scanner;
 import de.academy.training.devops.webblog.backend.*;
 import de.academy.training.devops.webblog.persistence.DataStore;
-import java.time.format.DateTimeFormatter;
 
 public class App {
 
