@@ -1,7 +1,6 @@
 package de.academy.training.devops.webblog.frontend;
 
 import java.util.Scanner;
-import de.academy.training.devops.webblog.backend.*;
 import de.academy.training.devops.webblog.persistence.DataStore;
 
 public class App {
@@ -28,22 +27,10 @@ public class App {
                 String text = userInput.nextLine();
                 System.out.println("Please enter your name:");
                 String author = userInput.nextLine();
-                Post post = new Post(title, text, author);
-                System.out.println(post.getFormattedDateTime());
-                dataStore.addPost(post);
-                System.out.println("--------------------Your post has been created!--------------------");
+                dataStore.createAndSavePost(title, text, author);
             } else if (choice == 2) {
                 System.out.println("All posts:");
-                for (int i = 1; i < dataStore.nextPostId; i++) {
-                    Post post = dataStore.getPost(i);
-                    System.out.println("ID: " + i);
-                    System.out.println("Title: " + post.getTitle());
-                    System.out.println("Text: " + post.getText());
-                    System.out.println("Author: " + post.getAuthor());
-                    System.out.println("Comments: " + post.getComments());
-                    System.out.println("Date: " + post.getFormattedDateTime());
-                    System.out.println("--------------------------------------------------");
-                }
+                dataStore.showAllPosts();
             } else if (choice == 4) {
                 break;
             } else {
