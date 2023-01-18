@@ -28,6 +28,7 @@ public class DataStore {
             commentsMap.put(postId, comments);
         }
         comments.add(comment);
+        System.out.println("--------------------Your comment has been created!--------------------");
     }
 
     public ArrayList<Comment> getComments(int postId) {
@@ -46,7 +47,7 @@ public class DataStore {
             System.out.println("Text: " + post.getText());
             System.out.println("Author: " + post.getAuthor());
             System.out.println("Date: " + post.getFormattedDateTime());
-            System.out.println("Number of comments: " + getComments(i).size());
+            System.out.println("Number of comments: " + commentsMap.size());
             System.out.println("--------------------------------------------------");
         }
     }

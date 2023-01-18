@@ -47,7 +47,6 @@ public class App {
                 String commenttext = userInput.nextLine();
                 Comment comment = new Comment(commenttext, commentauthor);
                 dataStore.addComment(postID, comment);
-                System.out.println("--------------------Your comment has been created!--------------------");
 
             } else if (choice == 4) {
                 System.out.println("Which Post do you want to see?");
