@@ -27,10 +27,22 @@ public class App {
                 String text = userInput.nextLine();
                 System.out.println("Please enter your name:");
                 String author = userInput.nextLine();
-                dataStore.createAndSavePost(title, text, author);
+                dataStore.createPost(title, text, author);
             } else if (choice == 2) {
                 System.out.println("All posts:");
                 dataStore.showAllPosts();
+
+            } else if (choice == 3) {
+                System.out.println("Which Post do you want to comment?");
+                int postID = userInput.nextInt();
+                userInput.nextLine();
+                System.out.println("Please add your name.");
+                String commentauthor = userInput.nextLine();
+                System.out.println("Please add your comment.");
+                String commenttext = userInput.nextLine();
+                // Comment comment = new Comment(commenttext, commentauthor);
+                // Post post = dataStore.getPost(postID);
+                // post.addComment(comment);
             } else if (choice == 4) {
                 break;
             } else {
