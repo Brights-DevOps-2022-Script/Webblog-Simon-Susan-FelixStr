@@ -46,6 +46,7 @@ public class DataStore {
             System.out.println("Text: " + post.getText());
             System.out.println("Author: " + post.getAuthor());
             System.out.println("Date: " + post.getFormattedDateTime());
+            System.out.println("Number of comments: " + getComments(i).size());
             System.out.println("--------------------------------------------------");
         }
     }

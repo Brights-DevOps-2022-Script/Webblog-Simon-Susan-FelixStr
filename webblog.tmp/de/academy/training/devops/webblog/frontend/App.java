@@ -19,7 +19,7 @@ public class App {
             System.out.println("2. Show all posts");
             System.out.println("3. Add a comment to a post");
             System.out.println("4. Show me a post and its comments");
-            System.out.println("5. Show me how much comments a post has");
+            // System.out.println("5. Show me how much comments a post has");
             System.out.println("0. Exit");
             int choice = userInput.nextInt();
             userInput.nextLine();
