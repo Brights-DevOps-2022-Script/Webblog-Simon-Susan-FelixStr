@@ -5,10 +5,12 @@ import de.academy.training.devops.webblog.backend.Post;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.ArrayList;
 
 public class DataStore {
 
     private Map<Integer, Post> postMap = new HashMap<>();
+    private Map<Integer, ArrayList<Comment>> commentsMap = new HashMap<>();
     public int nextPostId = 1;
 
     public void createPost(String title, String text, String author) {
@@ -17,6 +19,23 @@ public class DataStore {
         post.setId(nextPostId);
         nextPostId++;
         System.out.println("--------------------Your post has been created and!--------------------");
+    }
+
+    public void addComment(int postId, Comment comment) {
+        ArrayList<Comment> comments = commentsMap.get(postId);
+        if (comments == null) {
+            comments = new ArrayList<>();
+            commentsMap.put(postId, comments);
+        }
+        comments.add(comment);
+    }
+
+    public ArrayList<Comment> getComments(int postId) {
+        return commentsMap.get(postId);
+    }
+
+    public Post getPost(int postId) {
+        return postMap.get(postId);
     }
 
     public void showAllPosts() {
@@ -31,10 +50,6 @@ public class DataStore {
         }
     }
 
-    public Post getPost(int postId) {
-        return postMap.get(postId);
-    }
-
     public void showPost(int postId) {
         Post post = postMap.get(postId);
         System.out.println("ID: " + postId);
@@ -46,24 +61,33 @@ public class DataStore {
     }
 
     public void showPostAndComments(int postId) {
-        Post post = postMap.get(postId);
-        if (post != null) {
-            showPostAndComments(postId);
-            for (Comment comment : post.getComments()) {
-                System.out.println("-----Post-----");
-                System.out.println("ID: " + postId);
-                System.out.println("Title: " + post.getTitle());
-                System.out.println("Text: " + post.getText());
-                System.out.println("Author: " + post.getAuthor());
-                System.out.println("Date: " + post.getFormattedDateTime());
-                System.out.println("---Comments---");
+        Post post = getPost(postId);
+        System.out.println("-----------Post-----------");
+        System.out.println("ID: " + postId);
+        System.out.println("Title: " + post.getTitle());
+        System.out.println("Text: " + post.getText());
+        System.out.println("Author: " + post.getAuthor());
+        System.out.println("Date: " + post.getFormattedDateTime());
+        ArrayList<Comment> comments = getComments(postId);
+        if (comments == null || comments.isEmpty()) {
+            System.out.println("No comments yet.");
+        } else {
+            for (Comment comment : comments) {
+                System.out.println("---Comment---");
                 System.out.println("Comment: " + comment.getText());
                 System.out.println("Author: " + comment.getAuthor());
                 System.out.println("Date: " + comment.getFormattedDateTime());
                 System.out.println("--------------------------------------------------");
             }
+        }
+    }
+
+    public int getCommentCount(int postId) {
+        ArrayList<Comment> comments = getComments(postId);
+        if (comments == null) {
+            return 0;
         } else {
-            System.out.println("Post with ID " + postId + " not found.");
+            return comments.size();
         }
     }
 

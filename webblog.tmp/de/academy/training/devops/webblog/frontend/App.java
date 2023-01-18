@@ -17,9 +17,10 @@ public class App {
             System.out.println("What do you want to do?");
             System.out.println("1. Create a new post");
             System.out.println("2. Show all posts");
-            System.out.println("3. Show me a post and its comments");
-            System.out.println("4. Add a comment to a post");
-            System.out.println("5. Exit");
+            System.out.println("3. Add a comment to a post");
+            System.out.println("4. Show me a post and its comments");
+            System.out.println("5. Show me how much comments a post has");
+            System.out.println("0. Exit");
             int choice = userInput.nextInt();
             userInput.nextLine();
 
@@ -37,24 +38,28 @@ public class App {
                 dataStore.showAllPosts();
 
             } else if (choice == 3) {
-                System.out.println("Which Post do you want to see?");
-                int postId = userInput.nextInt();
-                dataStore.showPostAndComments(postId);
-
-            } else if (choice == 4) {
-                System.out.println("Which Post do you want to comment?");
+                System.out.println("Enter the ID of the Post you want to comment:");
                 int postID = userInput.nextInt();
                 userInput.nextLine();
-                System.out.println("What is your name?");
+                System.out.println("Add your username:");
                 String commentauthor = userInput.nextLine();
                 System.out.println("Type your comment:");
                 String commenttext = userInput.nextLine();
                 Comment comment = new Comment(commenttext, commentauthor);
-                Post post = dataStore.getPost(postID);
-                post.addComment(comment);
+                dataStore.addComment(postID, comment);
                 System.out.println("--------------------Your comment has been created!--------------------");
 
+            } else if (choice == 4) {
+                System.out.println("Which Post do you want to see?");
+                int postId = userInput.nextInt();
+                dataStore.showPostAndComments(postId);
+
             } else if (choice == 5) {
+                System.out.println("Enter the ID of the Post you want to see the number of comments:");
+                int postId = userInput.nextInt();
+                dataStore.showPostAndComments(postId);
+
+            } else if (choice == 0) {
                 break;
             } else {
                 System.out.println("Invalid choice. Please enter a valid number.");
