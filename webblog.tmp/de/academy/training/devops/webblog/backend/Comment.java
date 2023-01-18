@@ -6,11 +6,13 @@ import java.time.format.DateTimeFormatter;
 public class Comment {
 
     private String text;
+    private String author;
     private LocalDateTime dateTime;
     private DateTimeFormatter formatter;
 
     public Comment(String text, String author) {
         this.text = text;
+        this.author = author;
         this.dateTime = LocalDateTime.now();
         this.formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
@@ -25,6 +27,10 @@ public class Comment {
 
     public String getFormattedDateTime() {
         return dateTime.format(formatter);
+    }
+
+    public String getAuthor(){
+        return author;
     }
 
 }
