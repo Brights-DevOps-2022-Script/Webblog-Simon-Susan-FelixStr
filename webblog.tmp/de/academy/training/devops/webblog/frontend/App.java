@@ -29,6 +29,7 @@ public class App {
                 System.out.println("Please enter your name:");
                 String author = userInput.nextLine();
                 Post post = new Post(title, text, author);
+                System.out.println(post.getFormattedDateTime());
                 dataStore.addPost(post);
                 System.out.println("--------------------Your post has been created!--------------------");
             } else if (choice == 2) {
