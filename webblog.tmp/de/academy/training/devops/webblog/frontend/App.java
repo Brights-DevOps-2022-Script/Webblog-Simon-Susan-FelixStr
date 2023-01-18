@@ -18,6 +18,7 @@ public class App {
             System.out.println("What do you want to do?");
             System.out.println("1. Create a new post");
             System.out.println("2. Show all posts");
+            System.out.println("Do you want to comment a post?");
             System.out.println("3. Exit");
             int choice = userInput.nextInt();
             userInput.nextLine();
@@ -31,7 +32,7 @@ public class App {
                 String author = userInput.nextLine();
                 Post post = new Post(title, text, author);
                 dataStore.addPost(post);
-                System.out.println("Your post has been created!");
+                System.out.println("--------------------Your post has been created!--------------------");
             } else if (choice == 2) {
                 System.out.println("All posts:");
                 for (int i = 1; i < dataStore.nextPostId; i++) {
@@ -41,7 +42,7 @@ public class App {
                     System.out.println("Author: " + post.getAuthor());
                     System.out.println("Comments: " + post.getComments());
                     // System.out.println("Date: " + post.getDate());
-                    System.out.println("    ");
+                    System.out.println("--------------------------------------------------");
                 }
             } else if (choice == 3) {
                 break;
