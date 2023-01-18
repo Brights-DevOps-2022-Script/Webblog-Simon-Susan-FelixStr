@@ -1,5 +1,7 @@
 package de.academy.training.devops.webblog.backend;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Post {
@@ -8,12 +10,15 @@ public class Post {
     private String text;
     private String author;
     private ArrayList<Comment> comment;
-    private String date;
+    private LocalDateTime dateTime;
+    private DateTimeFormatter formatter;
 
     public Post(String title, String text, String author) {
         this.title = title;
         this.text = text;
         this.author = author;
+        this.dateTime = LocalDateTime.now();
+        this.formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
         this.comment = new ArrayList<Comment>();
 
     }
@@ -34,13 +39,18 @@ public class Post {
         return comment;
     }
 
-    public String getDate() {
-        return date;
+    }
+
+    public LocalDateTime getLocalDateTime() {
+        return dateTime;
+    }
+
+    public String getFormattedDateTime() {
+        return dateTime.format(formatter);
     }
 
     private ArrayList<Comment> comments = new ArrayList<Comment>();
 
     public void addComment(Comment comment) {
         comments.add(comment);
-    }
-}
+}}
