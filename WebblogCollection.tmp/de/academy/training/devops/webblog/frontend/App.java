@@ -1,14 +1,16 @@
+package de.academy.training.devops.webblog.frontend;
+
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
+import de.academy.training.devops.webblog.backend.*;
 
 import java.time.LocalTime;
 
-public class Webblog{
+public class App {
 
-    public static void main (String[] args) throws Exception{
-    
-        
+    public static void main(String[] args) throws Exception {
+
         System.out.println("********************Welcome on the SuSiFe-Website!********************");
 
         try (Scanner input = new Scanner(System.in)) {
@@ -23,8 +25,9 @@ public class Webblog{
             Post post = new Post(title, text, author);
             System.out.println("Enter comment: ");
             String commentText = input.nextLine();
-            Comments comment = new Comments(commentText, author);
+            Comment comment = new Comment(commentText, author);
             post.addComment(comment);
         }
-        
-}}
+
+    }
+}
