@@ -7,7 +7,7 @@ import de.academy.training.devops.webblog.backend.Post;
 public class DataStore {
 
     private Map<Integer, Post> postMap;
-    private int nextPostId = 1;
+    public int nextPostId = 1;
 
     public DataStore() {
         postMap = new HashMap<>();
