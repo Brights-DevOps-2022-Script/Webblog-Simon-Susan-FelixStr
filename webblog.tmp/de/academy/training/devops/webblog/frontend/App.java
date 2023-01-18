@@ -54,11 +54,6 @@ public class App {
                 int postId = userInput.nextInt();
                 dataStore.showPostAndComments(postId);
 
-            } else if (choice == 5) {
-                System.out.println("Enter the ID of the Post you want to see the number of comments:");
-                int postId = userInput.nextInt();
-                dataStore.showPostAndComments(postId);
-
             } else if (choice == 0) {
                 break;
             } else {

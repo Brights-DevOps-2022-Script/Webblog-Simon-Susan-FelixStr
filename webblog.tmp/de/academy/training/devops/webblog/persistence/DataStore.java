@@ -82,13 +82,4 @@ public class DataStore {
         }
     }
 
-    public int getCommentCount(int postId) {
-        ArrayList<Comment> comments = getComments(postId);
-        if (comments == null) {
-            return 0;
-        } else {
-            return comments.size();
-        }
-    }
-
 }
