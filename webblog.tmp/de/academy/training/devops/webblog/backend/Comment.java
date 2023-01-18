@@ -10,8 +10,7 @@ public class Comment {
         public Comment(String text, String author) {
             this.text = text;
             this.author = author;
-            LocalDate date = LocalDate.now();
-            LocalTime time = LocalTime.now();
+            
     }
 
     public String getText() {

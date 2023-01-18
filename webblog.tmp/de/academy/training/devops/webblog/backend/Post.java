@@ -38,7 +38,7 @@ public class Post{
 
 
         }
-    private ArrayList<Comment> comments;
+    private ArrayList<Comment> comments = new ArrayList<Comment>();
     public void addComment(Comment comment) {
         comments.add(comment);
 }}
