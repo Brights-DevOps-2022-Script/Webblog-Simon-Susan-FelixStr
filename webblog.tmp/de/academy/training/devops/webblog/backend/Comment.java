@@ -1,6 +1,5 @@
 package de.academy.training.devops.webblog.backend;
-import java.time.LocalDate;
-import java.time.LocalTime;
+
 
 public class Comment {
  

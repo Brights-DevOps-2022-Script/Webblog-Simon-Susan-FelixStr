@@ -22,9 +22,8 @@ public class App {
             LocalDateTime dateTime = LocalDateTime.now();
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
             System.out.println(dateTime.format(formatter));
-
-
             Post post = new Post(title, text, author);
+            
             System.out.println("Enter comment: ");
             String commentText = input.nextLine();
             Comment comment = new Comment(commentText, author);
