@@ -22,8 +22,17 @@ public class DataStore {
         nextPostId++;
     }
 
+    public void addComment(Comment comment) {
+        commentMap.put(nextCommentId, comment);
+        nextCommentId++;
+    }
+
     public Post getPost(int id) {
         return postMap.get(id);
+    }
+
+    public Post getComment() {
+        return postMap.get(getPostId);
     }
 
     public Post getPostId() {
