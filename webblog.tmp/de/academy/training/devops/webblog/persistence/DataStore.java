@@ -12,6 +12,7 @@ public class DataStore {
     private Map<Integer, Post> postMap = new HashMap<>();
     private Map<Integer, ArrayList<Comment>> commentsMap = new HashMap<>();
     public int nextPostId = 1;
+    public String expectedPassword = "admin";
 
     public void createPost(String title, String text, String author) {
         Post post = new Post(title, text, author);
@@ -82,6 +83,12 @@ public class DataStore {
                 System.out.println("--------------------------------------------------");
             }
         }
+    }
+
+    public void deletePost(int postId) {
+        postMap.remove(postId);
+        commentsMap.remove(postId);
+        System.out.println("--------------------The post has been deleted!--------------------");
     }
 
 }

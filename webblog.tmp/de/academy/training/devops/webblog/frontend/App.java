@@ -20,6 +20,7 @@ public class App {
             System.out.println("3. Add a comment to a post");
             System.out.println("4. Show me a post and its comments");
             // System.out.println("5. Show me how much comments a post has");
+            System.out.println("9. Delete a post (admin only)");
             System.out.println("0. Exit");
             int choice = userInput.nextInt();
             userInput.nextLine();
@@ -52,6 +53,17 @@ public class App {
                 System.out.println("Which Post do you want to see?");
                 int postId = userInput.nextInt();
                 dataStore.showPostAndComments(postId);
+
+            } else if (choice == 9) {
+                System.out.println("Enter the admin password:");
+                String enteredPassword = userInput.nextLine();
+                if (!enteredPassword.equals(dataStore.expectedPassword)) {
+                    System.out.println("Wrong password!");
+                    continue;
+                }
+                System.out.println("Enter the id of the post you want to delete:");
+                int postId = userInput.nextInt();
+                dataStore.deletePost(postId);
 
             } else if (choice == 0) {
                 break;
