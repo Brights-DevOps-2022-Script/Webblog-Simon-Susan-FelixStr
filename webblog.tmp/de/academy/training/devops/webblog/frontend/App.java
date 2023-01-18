@@ -1,10 +1,8 @@
 package de.academy.training.devops.webblog.frontend;
 
-
-import java.time.LocalDateTime;
 import java.util.Scanner;
 import de.academy.training.devops.webblog.backend.*;
-import java.time.format.DateTimeFormatter;
+
 
 public class App {
 
@@ -19,17 +17,15 @@ public class App {
             String title = input.nextLine();
             System.out.println("Enter Text: ");
             String text = input.nextLine();
-            LocalDateTime dateTime = LocalDateTime.now();
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-            System.out.println(dateTime.format(formatter));
             Post post = new Post(title, text, author);
+            System.out.println(post.getFormattedDateTime());
 
             System.out.println("Enter comment: ");
             String commentText = input.nextLine();
             Comment comment = new Comment(commentText, author);
             post.addComment(comment);
-             System.out.println(dateTime.format(formatter));
-           
+            System.out.println(post.getFormattedDateTime());
+
         }
 
     }
