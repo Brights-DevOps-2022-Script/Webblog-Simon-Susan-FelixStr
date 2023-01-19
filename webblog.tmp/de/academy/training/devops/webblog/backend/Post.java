@@ -2,14 +2,12 @@ package de.academy.training.devops.webblog.backend;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 
 public class Post {
 
     private String title;
     private String text;
     private String author;
-    private ArrayList<Comment> comment;
     private LocalDateTime dateTime;
     private DateTimeFormatter formatter;
 
@@ -19,7 +17,6 @@ public class Post {
         this.author = author;
         this.dateTime = LocalDateTime.now();
         this.formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-        this.comment = new ArrayList<Comment>();
 
     }
 
@@ -35,10 +32,6 @@ public class Post {
         return author;
     }
 
-    public ArrayList<Comment> getComments() {
-        return comment;
-    }
-
     public LocalDateTime getLocalDateTime() {
         return dateTime;
     }
@@ -47,9 +40,7 @@ public class Post {
         return dateTime.format(formatter);
     }
 
-    private ArrayList<Comment> comments = new ArrayList<Comment>();
-
-    public void addComment(Comment comment) {
-        comments.add(comment);
+    public int setId(int nextPostId) {
+        return nextPostId;
     }
 }

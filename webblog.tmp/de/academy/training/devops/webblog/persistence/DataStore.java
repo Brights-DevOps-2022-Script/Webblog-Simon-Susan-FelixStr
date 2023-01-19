@@ -2,24 +2,23 @@ package de.academy.training.devops.webblog.persistence;
 
 import de.academy.training.devops.webblog.backend.Comment;
 import de.academy.training.devops.webblog.backend.Post;
+
 import java.util.HashMap;
 import java.util.Map;
+import java.util.ArrayList;
 
 public class DataStore {
 
-    private Map<Integer, Post> postMap;
-    private Map<Integer, Comment> commentMap;
+    private Map<Integer, Post> postMap = new HashMap<>();
+    private Map<Integer, ArrayList<Comment>> commentsMap = new HashMap<>();
     public int nextPostId = 1;
-    public int nextCommentId = 1;
-    public int getPostId;
 
-    public DataStore() {
-        postMap = new HashMap<>();
-    }
-
-    public void addPost(Post post) {
+    public void createPost(String title, String text, String author) {
+        Post post = new Post(title, text, author);
         postMap.put(nextPostId, post);
+        post.setId(nextPostId);
         nextPostId++;
+        System.out.println("--------------------Your post has been created and!--------------------");
     }
 
     public void addComment(Comment comment) {
@@ -37,6 +36,9 @@ public class DataStore {
 
     public Post getPostId(int id) {
         return postMap.get(nextPostId);
+    }
+
+    public void addComment(int postID, Comment comment) {
     }
 
 }

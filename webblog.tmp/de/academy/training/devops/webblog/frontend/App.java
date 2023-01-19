@@ -46,16 +46,16 @@ public class App {
                 }
 
             } else if (choice == 3) {
-                System.out.println("Which Post do you want to comment?");
+                System.out.println("Enter the ID of the Post you want to comment:");
                 int postID = userInput.nextInt();
                 userInput.nextLine();
-                System.out.println("Please add your name.");
+                System.out.println("Add your username:");
                 String commentauthor = userInput.nextLine();
-                System.out.println("Please add your comment.");
+                System.out.println("Type your comment:");
                 String commenttext = userInput.nextLine();
                 Comment comment = new Comment(commenttext, commentauthor);
-                Post post = dataStore.getPost(postID);
-                post.addComment(comment);
+                dataStore.addComment(postID, comment);
+
             } else if (choice == 4) {
                 break;
             } else {

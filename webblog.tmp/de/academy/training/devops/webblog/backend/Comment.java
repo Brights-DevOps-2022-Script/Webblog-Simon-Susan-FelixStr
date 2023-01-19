@@ -21,16 +21,17 @@ public class Comment {
     public String getText() {
         return text;
     }
+
+    public String getAuthor() {
+        return author;
+    }
+
     public LocalDateTime getLocalDateTime() {
         return dateTime;
     }
 
     public String getFormattedDateTime() {
         return dateTime.format(formatter);
-    }
-
-    public String getAuthor(){
-        return author;
     }
 
 }
