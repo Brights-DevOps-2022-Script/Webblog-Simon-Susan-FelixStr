@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.Test;
 import de.academy.training.devops.webblog.backend.Post;
-import de.academy.training.devops.webblog.persistence.DataStore;
 
 public class DatastoreTest {
     
