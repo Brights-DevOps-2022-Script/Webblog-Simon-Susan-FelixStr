@@ -6,6 +6,7 @@ import de.academy.training.devops.webblog.backend.Post;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class DataStore {
 
@@ -31,6 +32,37 @@ public class DataStore {
         System.out.println("--------------------Your comment has been created!--------------------");
     }
 
+    public void showAllPosts() {
+        System.out.println("--------------------All Posts--------------------");
+        for (int i = 1; i < nextPostId; i++) {
+            Post post = getPost(i);
+            System.out.println("ID: " + i);
+            System.out.println("Title: " + post.getTitle());
+            System.out.println("Text: " + post.getText());
+            System.out.println("Author: " + post.getAuthor());
+            System.out.println("Date: " + post.getFormattedDateTime());
+            System.out.println("--------------------------------------------------");
+        }
+    }
+
+    public Post getPostWithComment(int postID) {
+        Post post = getPost(postID);
+        System.out.println("Post-ID: " + postID);
+        System.out.println("Title: " + post.getTitle());
+        System.out.println("Author: " + post.getAuthor());
+        System.out.println("Post: " + post.getText());
+        System.out.println("Date: " + post.getFormattedDateTime());
+        System.out.println("---------Comment(s)------------");
+
+        ArrayList<Comment> comments = getComments(postID);
+        for (Comment comment : comments) {
+            System.out.println("Author: " + comment.getAuthor());
+            System.out.println("Comment: " + comment.getText());
+            System.out.println("Date: " + comment.getFormattedDateTime());
+        }
+        return post;
+    }
+
     public Post getPost(int postId) {
         return postMap.get(postId);
     }
@@ -41,6 +73,14 @@ public class DataStore {
 
     public Post getPostId(int id) {
         return postMap.get(nextPostId);
+    }
+
+    public Post removePost(int postId) {
+        return postMap.remove(postId);
+    }
+
+    public Map<Integer, Post> showPosts() {
+        return postMap;
     }
 
 }
