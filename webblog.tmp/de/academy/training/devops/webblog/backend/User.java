@@ -4,8 +4,18 @@ public class User {
 
     private String username;
     private String password;
-    private String admin;
-    private String adminpassword;
 
-    
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+    public boolean login() {
+        if (this.username.equals("user") && this.password.equals("123")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
