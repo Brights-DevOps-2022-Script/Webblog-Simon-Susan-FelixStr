@@ -12,7 +12,24 @@ public class App {
         DataStore dataStore = new DataStore();
         Scanner userInput = new Scanner(System.in);
 
-        System.out.println("********************Welcome on the SuSiFe-Website!********************");
+        System.out.println();
+        System.out.println("******************** Welcome on the SuSiFe-Website! ********************" + "\n"
+                + "\n" + "------------ Please login first to be a part of the Webblog ------------");
+        System.out.println("Please enter your username:");
+        String username = userInput.nextLine();
+        System.out.println("Please enter your password:");
+        String password = userInput.nextLine();
+        User user = new User(username, password);
+        boolean result = user.login();
+        if (result) {
+            System.out.println("---Login successful!---");
+        } else {
+            System.out.println("---Login failed!---");
+            System.exit(0);
+        }
+
+        System.out.println();
+        System.out.println("******************** Menu ********************");
         while (true) {
             System.out.println("What do you want to do?");
             System.out.println("1. Create a new post");
@@ -55,7 +72,7 @@ public class App {
                 dataStore.addComment(postID, comment);
 
             } else if (choice == 4) {
-                System.out.println("Enter the ID of the Post you want to read with comments");    
+                System.out.println("Enter the ID of the Post you want to read with comments");
                 int postID = userInput.nextInt();
                 Post post = dataStore.getPost(postID);
                 System.out.println("Post-ID: " + postID);
@@ -66,15 +83,11 @@ public class App {
                 System.out.println("---------Comment(s)------------");
 
                 ArrayList<Comment> comments = dataStore.getComments(postID);
-                for (Comment comment: comments) {
+                for (Comment comment : comments) {
                     System.out.println("Author: " + comment.getAuthor());
                     System.out.println("Comment: " + comment.getText());
                     System.out.println("Date: " + comment.getFormattedDateTime());
                 }
-
-                
-                
-            
 
             } else if (choice == 5) {
                 break;
