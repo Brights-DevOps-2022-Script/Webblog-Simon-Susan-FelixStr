@@ -1,5 +1,6 @@
 package de.academy.training.devops.webblog.frontend;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import de.academy.training.devops.webblog.backend.*;
 import de.academy.training.devops.webblog.persistence.DataStore;
@@ -17,7 +18,8 @@ public class App {
             System.out.println("1. Create a new post");
             System.out.println("2. Show all posts");
             System.out.println("3. Do you want to comment a post?");
-            System.out.println("4. Exit");
+            System.out.println("4. Show a specific post with all it's comments");
+            System.out.println("5. Exit");
             int choice = userInput.nextInt();
             userInput.nextLine();
 
@@ -53,6 +55,28 @@ public class App {
                 dataStore.addComment(postID, comment);
 
             } else if (choice == 4) {
+                System.out.println("Enter the ID of the Post you want to read with comments");    
+                int postID = userInput.nextInt();
+                Post post = dataStore.getPost(postID);
+                System.out.println("Post-ID: " + postID);
+                System.out.println("Title: " + post.getTitle());
+                System.out.println("Author: " + post.getAuthor());
+                System.out.println("Post: " + post.getText());
+                System.out.println("Date: " + post.getFormattedDateTime());
+                System.out.println("---------Comment(s)------------");
+
+                ArrayList<Comment> comments = dataStore.getComments(postID);
+                for (Comment comment: comments) {
+                    System.out.println("Author: " + comment.getAuthor());
+                    System.out.println("Comment: " + comment.getText());
+                    System.out.println("Date: " + comment.getFormattedDateTime());
+                }
+
+                
+                
+            
+
+            } else if (choice == 5) {
                 break;
             } else {
                 System.out.println("Invalid choice. Please enter a valid number.");
