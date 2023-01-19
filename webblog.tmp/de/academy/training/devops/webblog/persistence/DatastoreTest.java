@@ -33,12 +33,12 @@ public class DatastoreTest {
 
         //test logik
         dataStore.createPost("test title", "test text", "test author");
-        dataStore.addComment(1, new Comment("testText", "testAuthor"));
+        dataStore.addComment(1, new Comment("test text", "test author"));
         ArrayList<Comment> comment = dataStore.getComments(1);
 
         // test erwartung
-        assertEquals("test text", comment.getText());
-        assertEquals("test author", comment.getAuthor());
+        assertEquals("test text", comment.get(0).getText());
+        assertEquals("test author", comment.get(0).getAuthor());
     }   
 
 
