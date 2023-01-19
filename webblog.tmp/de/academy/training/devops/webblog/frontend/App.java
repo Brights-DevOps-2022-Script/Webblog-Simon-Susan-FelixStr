@@ -13,10 +13,11 @@ public class App {
         Scanner userInput = new Scanner(System.in);
 
         System.out.println();
-        System.out.println("******************** Welcome on the SuSiFe-Website! ********************" + "\n"
+        System.out.println("******************** Welcome on the SuSiFe-Webblog! ********************" + "\n"
                 + "\n" + "------------ Please login first to be a part of the Webblog ------------");
+        System.out.println();
 
-        User user = User.promptForCred();
+        User user = User.prompt();
         if (user.login()) {
             System.out.println("---Login successful!---");
         } else {
@@ -26,22 +27,25 @@ public class App {
 
         System.out.println();
         System.out.println("******************** Menu ********************");
+        System.out.println();
         while (true) {
             System.out.println("What do you want to do?");
             System.out.println("1. Create a new post");
             System.out.println("2. Show all posts");
             System.out.println("3. Do you want to comment a post?");
             System.out.println("4. Show a specific post with all it's comments");
-            System.out.println("5. Delete a post(admin only)");
             System.out.println("0. Exit");
             int choice = userInput.nextInt();
             userInput.nextLine();
 
             if (choice == 1) {
+                System.out.println("--------------------------------------------------");
                 System.out.println("Please enter the title of your post:");
                 String title = userInput.nextLine();
+                System.out.println("--------------------------------------------------");
                 System.out.println("Please enter the text of your post:");
                 String text = userInput.nextLine();
+                System.out.println("--------------------------------------------------");
                 System.out.println("Please enter your name:");
                 String author = userInput.nextLine();
                 dataStore.createPost(title, text, author);
@@ -61,18 +65,25 @@ public class App {
                 dataStore.addComment(postID, comment);
 
             } else if (choice == 4) {
+                System.out.println("--------------------------------------------------");
                 System.out.println("Enter the ID of the Post you want to read with comments");
                 int postID = userInput.nextInt();
-                dataStore.getPostWithComment(postID);
+                Post post = dataStore.getPost(postID);
+                System.out.println("-----------Post(s)--------------");
+                System.out.println("Post-ID: " + postID);
+                System.out.println("Title: " + post.getTitle());
+                System.out.println("Author: " + post.getAuthor());
+                System.out.println("Post: " + post.getText());
+                System.out.println("Date: " + post.getFormattedDateTime());
 
-            } else if (choice == 5) {
-                System.out.println("Enter the admin password:");
-                String adminPassword = userInput.nextLine();
-                boolean adminresult = user.adminpassword(adminPassword);
-                if (adminresult)
-                    System.out.println("Enter the ID of the Post you want to delete:");
-                int postID = userInput.nextInt();
-                dataStore.removePost(postID);
+                System.out.println("----------Comment(s)------------");
+                ArrayList<Comment> comments = dataStore.getComments(postID);
+                for (Comment comment : comments) {
+                    System.out.println("Author: " + comment.getAuthor());
+                    System.out.println("Comment: " + comment.getText());
+                    System.out.println("Date: " + comment.getFormattedDateTime());
+                    System.out.println("--------------------------------------------------");
+                }
 
             } else if (choice == 0) {
                 break;
