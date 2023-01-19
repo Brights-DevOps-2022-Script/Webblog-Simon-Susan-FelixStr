@@ -27,11 +27,11 @@ public class DatastoreTest {
     }
 
     @Test
-    public void testaddComment(){
+    public void testaddComment() {
         // test vorbereiten
         DataStore dataStore = new DataStore();
 
-        //test logik
+        // test logik
         dataStore.createPost("test title", "test text", "test author");
         dataStore.addComment(1, new Comment("test text", "test author"));
         ArrayList<Comment> comment = dataStore.getComments(1);
@@ -39,15 +39,14 @@ public class DatastoreTest {
         // test erwartung
         assertEquals("test text", comment.get(0).getText());
         assertEquals("test author", comment.get(0).getAuthor());
-    }   
+    }
 
     @Test
-    public void testaddDoubleComment(){
-        //test vorbereiten
+    public void testaddDoubleComment() {
+        // test vorbereiten
         DataStore dataStore = new DataStore();
-        
 
-        //test logik
+        // test logik
         dataStore.createPost("test title", "test text", "test author");
         dataStore.addComment(1, new Comment("test text", "test author"));
         dataStore.addComment(1, new Comment("test text2", "test author2"));
@@ -56,11 +55,25 @@ public class DatastoreTest {
         // test erwartung
         assertEquals("test text2", comment.get(1).getText());
         assertEquals("test author2", comment.get(1).getAuthor());
-        
+
+    }
+
+    @Test
+    public void testshowAllPosts() {
+        // test vorbereitung
+        DataStore dataStore = new DataStore();
+
+        dataStore.createPost("title1", "text1", "author1");
+        dataStore.createPost("title2", "text2", "author2");
+        dataStore.createPost("title3", "text3", "author3");
+        dataStore.createPost("title4", "text4", "author4");
+        dataStore.createPost("title5", "text5", "author5");
+
+        // test logik
+        dataStore.postMap.size();
+
+        // test erwartung
+        assertEquals(5, dataStore.postMap.size());
+
     }
 }
-
-
-
-
-

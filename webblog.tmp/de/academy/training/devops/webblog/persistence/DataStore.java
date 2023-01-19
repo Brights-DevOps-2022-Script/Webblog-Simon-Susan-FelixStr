@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class DataStore {
 
-    private Map<Integer, Post> postMap = new HashMap<>();
+    public Map<Integer, Post> postMap = new HashMap<>();
     private Map<Integer, ArrayList<Comment>> commentsMap = new HashMap<>();
     public int nextPostId = 1;
 
