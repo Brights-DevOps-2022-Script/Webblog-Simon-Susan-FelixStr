@@ -41,7 +41,23 @@ public class DatastoreTest {
         assertEquals("test author", comment.get(0).getAuthor());
     }   
 
+    @Test
+    public void testaddDoubleComment(){
+        //test vorbereiten
+        DataStore dataStore = new DataStore();
+        
 
+        //test logik
+        dataStore.createPost("test title", "test text", "test author");
+        dataStore.addComment(1, new Comment("test text", "test author"));
+        dataStore.addComment(1, new Comment("test text2", "test author2"));
+        ArrayList<Comment> comment = dataStore.getComments(1);
+
+        // test erwartung
+        assertEquals("test text2", comment.get(1).getText());
+        assertEquals("test author2", comment.get(1).getAuthor());
+        
+    }
 }
 
 
