@@ -21,24 +21,26 @@ public class DataStore {
         System.out.println("--------------------Your post has been created and!--------------------");
     }
 
-    public void addComment(Comment comment) {
-        commentMap.put(nextCommentId, comment);
-        nextCommentId++;
+    public void addComment(int postId, Comment comment) {
+        ArrayList<Comment> comments = commentsMap.get(postId);
+        if (comments == null) {
+            comments = new ArrayList<>();
+            commentsMap.put(postId, comments);
+        }
+        comments.add(comment);
+        System.out.println("--------------------Your comment has been created!--------------------");
     }
 
-    public Post getPost(int id) {
-        return postMap.get(id);
+    public Post getPost(int postId) {
+        return postMap.get(postId);
     }
 
-    public Post getComment() {
-        return postMap.get(getPostId);
+    public ArrayList<Comment> getComments(int postId) {
+        return commentsMap.get(postId);
     }
 
     public Post getPostId(int id) {
         return postMap.get(nextPostId);
-    }
-
-    public void addComment(int postID, Comment comment) {
     }
 
 }

@@ -30,7 +30,7 @@ public class App {
                 String author = userInput.nextLine();
                 Post post = new Post(title, text, author);
                 System.out.println(post.getFormattedDateTime());
-                dataStore.addPost(post);
+                dataStore.createPost(post);
                 System.out.println("--------------------Your post has been created!--------------------");
             } else if (choice == 2) {
                 System.out.println("All posts:");
