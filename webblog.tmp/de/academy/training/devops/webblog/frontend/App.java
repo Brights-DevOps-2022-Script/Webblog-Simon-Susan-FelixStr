@@ -15,13 +15,9 @@ public class App {
         System.out.println();
         System.out.println("******************** Welcome on the SuSiFe-Website! ********************" + "\n"
                 + "\n" + "------------ Please login first to be a part of the Webblog ------------");
-        System.out.println("Please enter your username:");
-        String username = userInput.nextLine();
-        System.out.println("Please enter your password:");
-        String password = userInput.nextLine();
-        User user = new User(username, password);
-        boolean result = user.login();
-        if (result) {
+
+        User user = User.promptForCred();
+        if (user.login()) {
             System.out.println("---Login successful!---");
         } else {
             System.out.println("---Login failed!---");
