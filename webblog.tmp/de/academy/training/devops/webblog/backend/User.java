@@ -30,14 +30,4 @@ public class User {
         }
     }
 
-    public boolean adminpassword(String adminPassword) {
-        if (adminPassword.equals("admin")) {
-            System.out.println("Enter the ID of the Post you want to delete:");
-            return true;
-        } else {
-            System.out.println("Wrong password!");
-            return false;
-        }
-    }
-
 }

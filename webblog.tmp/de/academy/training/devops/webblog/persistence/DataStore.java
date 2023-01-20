@@ -6,7 +6,6 @@ import de.academy.training.devops.webblog.backend.Post;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class DataStore {
 
