@@ -54,11 +54,14 @@ public class App {
                 dataStore.showAllPosts();
 
             } else if (choice == 3) {
+                System.out.println("--------------------------------------------------");
                 System.out.println("Enter the ID of the Post you want to comment:");
                 int postID = userInput.nextInt();
                 userInput.nextLine();
+                System.out.println("--------------------------------------------------");
                 System.out.println("Add your username:");
                 String commentauthor = userInput.nextLine();
+                System.out.println("--------------------------------------------------");
                 System.out.println("Type your comment:");
                 String commenttext = userInput.nextLine();
                 Comment comment = new Comment(commenttext, commentauthor);
@@ -69,14 +72,14 @@ public class App {
                 System.out.println("Enter the ID of the Post you want to read with comments");
                 int postID = userInput.nextInt();
                 Post post = dataStore.getPost(postID);
-                System.out.println("-----------Post(s)--------------");
+                System.out.println("-------------Post---------------");
                 System.out.println("Post-ID: " + postID);
                 System.out.println("Title: " + post.getTitle());
                 System.out.println("Author: " + post.getAuthor());
                 System.out.println("Post: " + post.getText());
                 System.out.println("Date: " + post.getFormattedDateTime());
 
-                System.out.println("----------Comment(s)------------");
+                System.out.println("-----------Comment(s)------------");
                 ArrayList<Comment> comments = dataStore.getComments(postID);
                 for (Comment comment : comments) {
                     System.out.println("Author: " + comment.getAuthor());
