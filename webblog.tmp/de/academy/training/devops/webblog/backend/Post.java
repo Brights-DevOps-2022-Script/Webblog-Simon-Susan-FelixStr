@@ -19,8 +19,6 @@ public class Post {
         this.author = author;
         this.dateTime = LocalDateTime.now();
         this.formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-        
-        
 
     }
 
@@ -47,14 +45,12 @@ public class Post {
     public int setId(int nextPostId) {
         return nextPostId;
     }
+
     public int getRating() {
         return rating;
     }
-    public int setRating(){
+
+    public int setRating() {
         return rating1;
     }
-
-    public static void setRating(int rating2) {
-    }
-   
 }
