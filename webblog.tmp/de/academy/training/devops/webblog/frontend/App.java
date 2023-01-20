@@ -48,14 +48,8 @@ public class App {
                 System.out.println("Please enter your name:");
                 String author = userInput.nextLine();
                 System.out.println("Please enter your Rating:");
-                int rating = userInput.nextInt();
-                if (rating >= 1 && rating <= 5) {
-
-                } else {
-                    System.out.println("Rating must be between 1 and 5");
-                }
-
                 dataStore.createPost(title, text, author);
+
             } else if (choice == 2) {
                 System.out.println("All posts:");
                 for (int i = 1; i < dataStore.nextPostId; i++) {
@@ -65,8 +59,6 @@ public class App {
                     System.out.println("Text: " + post.getText());
                     System.out.println("Author: " + post.getAuthor());
                     System.out.println("Date: " + post.getFormattedDateTime());
-                    int postRating = post.getRating();
-                    System.out.println("Rating: " + postRating);
                     System.out.println("--------------------------------------------------");
                 }
 
@@ -90,8 +82,6 @@ public class App {
                 System.out.println("Author: " + post.getAuthor());
                 System.out.println("Post: " + post.getText());
                 System.out.println("Date: " + post.getFormattedDateTime());
-                int postRating = post.getRating();
-                System.out.println("Rating: " + postRating);
                 System.out.println("---------Comment(s)------------");
 
                 ArrayList<Comment> comments = dataStore.getComments(postID);
@@ -101,7 +91,7 @@ public class App {
                     System.out.println("Date: " + comment.getFormattedDateTime());
                 }
 
-            } else if (choice == 5) {
+            } else if (choice == 0) {
                 break;
             } else {
                 System.out.println("Invalid choice. Please enter a valid number.");

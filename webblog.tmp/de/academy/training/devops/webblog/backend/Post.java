@@ -10,8 +10,6 @@ public class Post {
     private String author;
     private LocalDateTime dateTime;
     private DateTimeFormatter formatter;
-    private int rating;
-    private int rating1;
 
     public Post(String title, String text, String author) {
         this.title = title;
@@ -44,13 +42,5 @@ public class Post {
 
     public int setId(int nextPostId) {
         return nextPostId;
-    }
-
-    public int getRating() {
-        return rating;
-    }
-
-    public int setRating() {
-        return rating1;
     }
 }
