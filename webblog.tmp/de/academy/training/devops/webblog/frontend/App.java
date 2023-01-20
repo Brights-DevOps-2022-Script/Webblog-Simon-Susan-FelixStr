@@ -49,7 +49,6 @@ public class App {
 
             } else if (choice == 2) {
                 dataStore.showAllPosts();
-                }
 
             } else if (choice == 3) {
                 System.out.println("Enter the ID of the Post you want to comment:");
@@ -85,5 +84,7 @@ public class App {
             } else {
                 System.out.println("Invalid choice. Please enter a valid number.");
             }
-        }userInput.close();
-}}
+        }
+        userInput.close();
+    }
+}
