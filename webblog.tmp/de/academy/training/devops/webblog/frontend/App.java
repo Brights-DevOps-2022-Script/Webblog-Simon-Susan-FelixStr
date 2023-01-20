@@ -46,16 +46,7 @@ public class App {
                 String author = userInput.nextLine();
                 dataStore.createPost(title, text, author);
             } else if (choice == 2) {
-                System.out.println("All posts:");
-                for (int i = 1; i < dataStore.nextPostId; i++) {
-                    Post post = dataStore.getPost(i);
-                    System.out.println("ID: " + i);
-                    System.out.println("Title: " + post.getTitle());
-                    System.out.println("Text: " + post.getText());
-                    System.out.println("Author: " + post.getAuthor());
-                    System.out.println("Date: " + post.getFormattedDateTime());
-                    System.out.println("--------------------------------------------------");
-                }
+                dataStore.showAllPosts();
 
             } else if (choice == 3) {
                 System.out.println("Enter the ID of the Post you want to comment:");
