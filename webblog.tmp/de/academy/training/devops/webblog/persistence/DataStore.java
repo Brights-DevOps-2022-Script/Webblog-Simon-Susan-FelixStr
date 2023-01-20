@@ -6,6 +6,7 @@ import de.academy.training.devops.webblog.backend.Post;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class DataStore {
 
@@ -42,6 +43,24 @@ public class DataStore {
             System.out.println("Date: " + post.getFormattedDateTime());
             System.out.println("--------------------------------------------------");
         }
+    }
+
+    public Post getPostWithComment(int postID) {
+        Post post = getPost(postID);
+        System.out.println("Post-ID: " + postID);
+        System.out.println("Title: " + post.getTitle());
+        System.out.println("Author: " + post.getAuthor());
+        System.out.println("Post: " + post.getText());
+        System.out.println("Date: " + post.getFormattedDateTime());
+        System.out.println("---------Comment(s)------------");
+
+        ArrayList<Comment> comments = getComments(postID);
+        for (Comment comment : comments) {
+            System.out.println("Author: " + comment.getAuthor());
+            System.out.println("Comment: " + comment.getText());
+            System.out.println("Date: " + comment.getFormattedDateTime());
+        }
+        return post;
     }
 
     public Post getPost(int postId) {

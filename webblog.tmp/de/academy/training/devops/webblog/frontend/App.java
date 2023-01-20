@@ -45,6 +45,7 @@ public class App {
                 System.out.println("Please enter your name:");
                 String author = userInput.nextLine();
                 dataStore.createPost(title, text, author);
+
             } else if (choice == 2) {
                 dataStore.showAllPosts();
 
@@ -62,20 +63,7 @@ public class App {
             } else if (choice == 4) {
                 System.out.println("Enter the ID of the Post you want to read with comments");
                 int postID = userInput.nextInt();
-                Post post = dataStore.getPost(postID);
-                System.out.println("Post-ID: " + postID);
-                System.out.println("Title: " + post.getTitle());
-                System.out.println("Author: " + post.getAuthor());
-                System.out.println("Post: " + post.getText());
-                System.out.println("Date: " + post.getFormattedDateTime());
-                System.out.println("---------Comment(s)------------");
-
-                ArrayList<Comment> comments = dataStore.getComments(postID);
-                for (Comment comment : comments) {
-                    System.out.println("Author: " + comment.getAuthor());
-                    System.out.println("Comment: " + comment.getText());
-                    System.out.println("Date: " + comment.getFormattedDateTime());
-                }
+                dataStore.getPostWithComment(postID);
 
             } else if (choice == 5) {
                 System.out.println("Enter the admin password:");
