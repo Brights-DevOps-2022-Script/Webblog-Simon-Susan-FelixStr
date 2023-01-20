@@ -36,7 +36,7 @@ public class App {
             System.out.println("2. Show all posts");
             System.out.println("3. Do you want to comment a post?");
             System.out.println("4. Show a specific post with all it's comments");
-            System.out.println("5. Exit");
+            System.out.println("0. Exit");
             int choice = userInput.nextInt();
             userInput.nextLine();
 
