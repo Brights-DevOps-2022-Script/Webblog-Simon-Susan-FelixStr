@@ -15,13 +15,10 @@ public class App {
         System.out.println();
         System.out.println("******************** Welcome on the SuSiFe-Website! ********************" + "\n"
                 + "\n" + "------------ Please login first to be a part of the Webblog ------------");
-        System.out.println("Please enter your username:");
-        String username = userInput.nextLine();
-        System.out.println("Please enter your password:");
-        String password = userInput.nextLine();
-        User user = new User(username, password);
-        boolean result = user.login();
-        if (result) {
+        System.out.println();
+
+        User user = User.prompt();
+        if (user.login()) {
             System.out.println("---Login successful!---");
         } else {
             System.out.println("---Login failed!---");
@@ -51,15 +48,7 @@ public class App {
                 dataStore.createPost(title, text, author);
 
             } else if (choice == 2) {
-                System.out.println("All posts:");
-                for (int i = 1; i < dataStore.nextPostId; i++) {
-                    Post post = dataStore.getPost(i);
-                    System.out.println("ID: " + i);
-                    System.out.println("Title: " + post.getTitle());
-                    System.out.println("Text: " + post.getText());
-                    System.out.println("Author: " + post.getAuthor());
-                    System.out.println("Date: " + post.getFormattedDateTime());
-                    System.out.println("--------------------------------------------------");
+                dataStore.showAllPosts();
                 }
 
             } else if (choice == 3) {
@@ -96,7 +85,5 @@ public class App {
             } else {
                 System.out.println("Invalid choice. Please enter a valid number.");
             }
-        }
-        userInput.close();
-    }
-}
+        }userInput.close();
+}}

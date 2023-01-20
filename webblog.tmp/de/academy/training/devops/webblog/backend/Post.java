@@ -17,7 +17,6 @@ public class Post {
         this.author = author;
         this.dateTime = LocalDateTime.now();
         this.formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-
     }
 
     public String getTitle() {
