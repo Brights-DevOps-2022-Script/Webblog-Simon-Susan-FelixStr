@@ -50,11 +50,11 @@ public class App {
                 System.out.println("Please enter your Rating:");
                 int rating = userInput.nextInt();
                 if (rating >= 1 && rating <= 5) {
-                
+
                 } else {
-                        System.out.println("Rating must be between 1 and 5");
-                    }
-                
+                    System.out.println("Rating must be between 1 and 5");
+                }
+
                 dataStore.createPost(title, text, author);
             } else if (choice == 2) {
                 System.out.println("All posts:");
@@ -106,5 +106,7 @@ public class App {
             } else {
                 System.out.println("Invalid choice. Please enter a valid number.");
             }
-        }userInput.close();
-}}
+        }
+        userInput.close();
+    }
+}

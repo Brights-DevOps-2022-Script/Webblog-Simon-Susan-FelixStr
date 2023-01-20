@@ -55,7 +55,6 @@ public class DatastoreTest {
         // test erwartung
         assertEquals("test text2", comment.get(1).getText());
         assertEquals("test author2", comment.get(1).getAuthor());
-
     }
 
     @Test
@@ -74,6 +73,5 @@ public class DatastoreTest {
 
         // test erwartung
         assertEquals(5, dataStore.postMap.size());
-
     }
 }
