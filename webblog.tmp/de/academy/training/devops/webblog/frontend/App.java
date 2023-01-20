@@ -13,7 +13,7 @@ public class App {
         Scanner userInput = new Scanner(System.in);
 
         System.out.println();
-        System.out.println("******************** Welcome on the SuSiFe-Website! ********************" + "\n"
+        System.out.println("******************** Welcome on the SuSiFe-Webblog! ********************" + "\n"
                 + "\n" + "------------ Please login first to be a part of the Webblog ------------");
         System.out.println();
 
@@ -27,6 +27,7 @@ public class App {
 
         System.out.println();
         System.out.println("******************** Menu ********************");
+        System.out.println();
         while (true) {
             System.out.println("What do you want to do?");
             System.out.println("1. Create a new post");
@@ -38,13 +39,15 @@ public class App {
             userInput.nextLine();
 
             if (choice == 1) {
+                System.out.println("--------------------------------------------------");
                 System.out.println("Please enter the title of your post:");
                 String title = userInput.nextLine();
+                System.out.println("--------------------------------------------------");
                 System.out.println("Please enter the text of your post:");
                 String text = userInput.nextLine();
+                System.out.println("--------------------------------------------------");
                 System.out.println("Please enter your name:");
                 String author = userInput.nextLine();
-                System.out.println("Please enter your Rating:");
                 dataStore.createPost(title, text, author);
 
             } else if (choice == 2) {
@@ -62,21 +65,24 @@ public class App {
                 dataStore.addComment(postID, comment);
 
             } else if (choice == 4) {
+                System.out.println("--------------------------------------------------");
                 System.out.println("Enter the ID of the Post you want to read with comments");
                 int postID = userInput.nextInt();
                 Post post = dataStore.getPost(postID);
+                System.out.println("-----------Post(s)--------------");
                 System.out.println("Post-ID: " + postID);
                 System.out.println("Title: " + post.getTitle());
                 System.out.println("Author: " + post.getAuthor());
                 System.out.println("Post: " + post.getText());
                 System.out.println("Date: " + post.getFormattedDateTime());
-                System.out.println("---------Comment(s)------------");
 
+                System.out.println("----------Comment(s)------------");
                 ArrayList<Comment> comments = dataStore.getComments(postID);
                 for (Comment comment : comments) {
                     System.out.println("Author: " + comment.getAuthor());
                     System.out.println("Comment: " + comment.getText());
                     System.out.println("Date: " + comment.getFormattedDateTime());
+                    System.out.println("--------------------------------------------------");
                 }
 
             } else if (choice == 0) {

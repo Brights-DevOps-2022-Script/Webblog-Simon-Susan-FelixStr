@@ -18,7 +18,7 @@ public class DataStore {
         postMap.put(nextPostId, post);
         post.setId(nextPostId);
         nextPostId++;
-        System.out.println("--------------------Your post has been created and!--------------------");
+        System.out.println("--------------------Your post has been created!--------------------");
     }
 
     public void addComment(int postId, Comment comment) {
@@ -32,7 +32,7 @@ public class DataStore {
     }
 
     public void showAllPosts() {
-        System.out.println("All posts:");
+        System.out.println("--------------------All posts!--------------------");
         for (int i = 1; i < nextPostId; i++) {
             Post post = getPost(i);
             System.out.println("ID: " + i);
@@ -40,7 +40,7 @@ public class DataStore {
             System.out.println("Text: " + post.getText());
             System.out.println("Author: " + post.getAuthor());
             System.out.println("Date: " + post.getFormattedDateTime());
-            System.out.println("--------------------------------------------------");
+            System.out.println("-------------------------");
         }
     }
 
