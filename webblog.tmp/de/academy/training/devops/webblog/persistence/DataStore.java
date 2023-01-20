@@ -43,4 +43,8 @@ public class DataStore {
         return postMap.get(nextPostId);
     }
 
+    public Post removePost(int postId) {
+        return postMap.remove(postId);
+    }
+
 }

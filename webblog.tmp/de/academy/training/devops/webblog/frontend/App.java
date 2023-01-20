@@ -36,7 +36,8 @@ public class App {
             System.out.println("2. Show all posts");
             System.out.println("3. Do you want to comment a post?");
             System.out.println("4. Show a specific post with all it's comments");
-            System.out.println("5. Exit");
+            System.out.println("5. Delete a post(admin only)");
+            System.out.println("0. Exit");
             int choice = userInput.nextInt();
             userInput.nextLine();
 
@@ -90,6 +91,15 @@ public class App {
                 }
 
             } else if (choice == 5) {
+                System.out.println("Enter the admin password:");
+                String adminPassword = userInput.nextLine();
+                boolean adminresult = user.adminpassword(adminPassword);
+                if (adminresult)
+                    System.out.println("Enter the ID of the Post you want to delete:");
+                int postID = userInput.nextInt();
+                dataStore.removePost(postID);
+
+            } else if (choice == 0) {
                 break;
             } else {
                 System.out.println("Invalid choice. Please enter a valid number.");
